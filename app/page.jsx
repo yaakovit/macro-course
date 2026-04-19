@@ -1,40 +1,10 @@
-'use client';
-import { useState } from "react";
-
-export default function Page() {
-  const [input, setInput] = useState("");
-  const [response, setResponse] = useState("");
-
-  const askAI = async () => {
-    const res = await fetch("/api/tutor", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ message: input }),
-    });
-
-    const data = await res.json();
-    setResponse(data.reply);
-  };
-
+export default function Home() {
   return (
-    <div style={{ padding: "40px", direction: "rtl", fontFamily: "Arial" }}>
-      <h1>קורס מאקרו כלכלה</h1>
-      <h2>🤖 עוזר אישי</h2>
-
-      <input
-        style={{ width: "320px", padding: "10px" }}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="שאל שאלה..."
-      />
-
-      <button onClick={askAI} style={{ marginRight: "10px", padding: "10px 16px" }}>
-        שאל
-      </button>
-
-      <p style={{ marginTop: "20px" }}>{response}</p>
+    <div style={{ padding: 40 }}>
+      <h1>שלום ד"ר יעקב 👋</h1>
+      <p>האתר שלך עובד!</p>
+      <p>בדוק את ה־API:</p>
+      <a href="/api/tutor">לחץ כאן</a>
     </div>
   );
 }
