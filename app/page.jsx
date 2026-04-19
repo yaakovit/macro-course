@@ -1,7 +1,7 @@
-export default function Home() {
+export default function Page() {
   return (
-    <div>
-      <h1>זה עובד 🚀</h1>
-    </div>
+    <main>
+      <h1>האתר עובד 🚀</h1>
+    </main>
   );
 }
