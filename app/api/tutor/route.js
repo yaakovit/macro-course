@@ -14,7 +14,8 @@ export async function POST(req) {
       messages: [
         {
           role: "system",
-          content: "אתה מורה אישי לסטודנטים בקורס מקרו כלכלה. ענה בצורה פשוטה, ברורה וקצרה עם דוגמאות כשצריך.",
+          content:
+            "אתה מורה אישי לסטודנטים בקורס מקרו כלכלה. ענה בצורה פשוטה, ברורה וקצרה עם דוגמאות כשצריך.",
         },
         {
           role: "user",
@@ -24,12 +25,17 @@ export async function POST(req) {
     });
 
     return new Response(
-      JSON.stringify({ reply: response.choices[0].message.content }),
+      JSON.stringify({
+        reply: response.choices[0].message.content,
+      }),
       { status: 200 }
     );
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-    });
+    return new Response(
+      JSON.stringify({
+        error: error.message,
+      }),
+      { status: 500 }
+    );
   }
 }
